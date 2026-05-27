@@ -1,0 +1,2002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAXGRARPRO — Built for Professionals</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow+Condensed:wght@400;500;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   MAXGRARPRO v2 — MODbox Industrial Design System
+   ============================================================ */
+:root {
+  color-scheme: dark;
+  --black: #0A0A0A;
+  --black-2: #111111;
+  --black-3: #1A1A1A;
+  --orange: #F15A24;
+  --orange-glow: rgba(241,90,36,0.25);
+  --orange-dim: rgba(241,90,36,0.08);
+  --white: #F0EDE8;
+  --white-60: rgba(240,237,232,0.6);
+  --white-30: rgba(240,237,232,0.3);
+  --white-10: rgba(240,237,232,0.1);
+  --white-05: rgba(240,237,232,0.05);
+  --font-display: 'Anton', sans-serif;
+  --font-heading: 'Barlow Condensed', sans-serif;
+  --font-body: 'Barlow', sans-serif;
+  --max: 1440px;
+  --clip-sm: polygon(0 0,100% 0,100% calc(100% - 8px),calc(100% - 8px) 100%,0 100%);
+  --clip-md: polygon(0 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%);
+}
+
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: var(--font-body);
+  background: var(--black);
+  color: var(--white);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { color:inherit; text-decoration:none; }
+
+/* ============================================================
+   ANNOUNCEMENT BAR
+   ============================================================ */
+.announce {
+  background: var(--orange);
+  color: var(--black);
+  text-align: center;
+  padding: 10px 16px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.announce span { opacity:0.7; margin:0 6px; }
+
+/* ============================================================
+   HEADER — MODbox style: clean, minimal, industrial
+   ============================================================ */
+.header {
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--white-05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.hdr-in {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  height: 68px;
+  gap: 32px;
+}
+.logo {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 4px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  cursor: pointer;
+  line-height: 1;
+}
+.logo-m {
+  width: 32px; height: 32px;
+  background: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  color: var(--black);
+  clip-path: var(--clip-sm);
+}
+.logo span { color: var(--orange); font-weight: 400; }
+
+.nav {
+  display: flex;
+  gap: 0;
+  align-items: center;
+  flex: 1;
+}
+.nav a {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--white-60);
+  padding: 10px 14px;
+  cursor: pointer;
+  border: none;
+  background: none;
+  transition: color 0.15s;
+  white-space: nowrap;
+}
+.nav a:hover { color: var(--orange); }
+
+.hdr-act {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+.hdr-act select {
+  background: transparent;
+  color: var(--white-60);
+  border: 1px solid var(--white-10);
+  padding: 6px 10px;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.ic-btn {
+  background: none;
+  border: none;
+  color: var(--white-60);
+  cursor: pointer;
+  font-size: 17px;
+  padding: 8px;
+  transition: color 0.15s;
+  position: relative;
+}
+.ic-btn:hover { color: var(--orange); }
+.cart-badge {
+  position: absolute;
+  top: 0; right: 0;
+  background: var(--orange);
+  color: var(--black);
+  font-size: 10px;
+  font-weight: 700;
+  width: 17px; height: 17px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+}
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 24px;
+  cursor: pointer;
+}
+
+/* ============================================================
+   PAGES
+   ============================================================ */
+.page { display:none; min-height:60vh; }
+.page.active { display:block; }
+
+/* ============================================================
+   HERO — MODbox style: video bg + bold typography
+   ============================================================ */
+.hero {
+  position: relative;
+  min-height: 90vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--black);
+}
+.hero-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: var(--black-2);
+}
+.hero-video-wrap video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+}
+/* Fallback when no video */
+.hero-video-fallback {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 35% 50%, var(--orange-glow) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 70% 30%, rgba(255,255,255,0.03) 0%, transparent 60%);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,10,10,0.3) 0%, rgba(10,10,10,0.7) 60%, var(--black) 100%);
+  z-index: 1;
+}
+/* Geometric accent shapes */
+.hero-geo-1 {
+  position: absolute;
+  right: -40px;
+  bottom: 15%;
+  width: 300px; height: 300px;
+  border: 2px solid rgba(241,90,36,0.08);
+  clip-path: var(--clip-md);
+  z-index: 0;
+}
+.hero-geo-2 {
+  position: absolute;
+  right: 80px;
+  top: 20%;
+  width: 150px; height: 150px;
+  border: 1px solid rgba(241,90,36,0.06);
+  z-index: 0;
+  transform: rotate(15deg);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 100px 40px;
+  width: 100%;
+}
+.hero-eyebrow {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--orange);
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(52px, 9vw, 110px);
+  line-height: 0.92;
+  letter-spacing: -1px;
+  max-width: 800px;
+  margin-bottom: 28px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.hero-title em {
+  font-style: normal;
+  color: var(--orange);
+  display: block;
+}
+.hero-subtitle {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--white-60);
+  max-width: 520px;
+  margin-bottom: 44px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+.hero-ctas {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* ============================================================
+   BUTTONS — MODbox angular style
+   ============================================================ */
+.btn {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 17px 38px;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s;
+  text-decoration: none;
+  clip-path: var(--clip-sm);
+  line-height: 1;
+}
+.btn-primary {
+  background: var(--orange);
+  color: var(--black);
+}
+.btn-primary:hover {
+  background: var(--white);
+  transform: translateY(-2px);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid var(--white-30);
+}
+.btn-outline:hover {
+  border-color: var(--orange);
+  color: var(--orange);
+}
+.btn-sm {
+  padding: 11px 22px;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+}
+.btn-dark {
+  background: var(--black);
+  color: var(--white);
+  border: 2px solid var(--black);
+}
+.btn-dark:hover {
+  background: var(--white);
+  color: var(--black);
+}
+.btn-block {
+  width: 100%;
+  justify-content: center;
+}
+
+/* Trust row */
+.trust-row {
+  display: flex;
+  gap: 48px;
+  margin-top: 64px;
+  padding-top: 32px;
+  border-top: 1px solid var(--white-05);
+  flex-wrap: wrap;
+}
+.trust-item {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: var(--white-30);
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.trust-dot {
+  width: 8px; height: 8px;
+  background: var(--orange);
+  clip-path: polygon(0 0,100% 0,100% 60%,60% 100%,0 100%,0 40%);
+}
+
+/* ============================================================
+   SECTION SHARED
+   ============================================================ */
+.section {
+  padding: 120px 40px;
+  max-width: var(--max);
+  margin: 0 auto;
+}
+.section-flush {
+  padding: 120px 0;
+}
+.section-dark {
+  background: var(--black-2);
+}
+.section-label {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 6px;
+  color: var(--orange);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(36px, 6vw, 72px);
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.section-subtitle {
+  font-size: 17px;
+  color: var(--white-60);
+  max-width: 600px;
+  font-weight: 400;
+}
+
+/* ============================================================
+   MODULAR ECOSYSTEM — Visual stacking system
+   ============================================================ */
+.eco-wrap {
+  display: flex;
+  gap: 0;
+  margin-top: 60px;
+  align-items: flex-end;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.eco-unit {
+  background: var(--black-3);
+  border: 1px solid var(--white-05);
+  padding: 48px 40px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  clip-path: var(--clip-sm);
+}
+.eco-unit:hover {
+  border-color: var(--orange);
+  background: var(--black-2);
+  transform: translateY(-8px);
+}
+.eco-unit.stack-tall { width: 240px; height: 220px; }
+.eco-unit.stack-mid { width: 260px; height: 190px; }
+.eco-unit.stack-base { width: 360px; height: 170px; border-color: var(--orange); }
+.eco-unit.stack-side { width: 180px; height: 140px; }
+.eco-icon { font-size: 44px; margin-bottom: 12px; }
+.eco-name {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.eco-desc {
+  font-size: 12px;
+  color: var(--white-30);
+  margin-top: 6px;
+  font-weight: 500;
+}
+.eco-conn {
+  width: 32px;
+  height: 3px;
+  background: var(--orange);
+  align-self: center;
+  opacity: 0.5;
+  margin: 0 -4px;
+}
+
+/* ============================================================
+   PRODUCT SERIES CARDS
+   ============================================================ */
+.series-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2px;
+  margin-top: 48px;
+}
+.series-card {
+  background: var(--black-2);
+  padding: 48px 36px;
+  cursor: pointer;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  clip-path: var(--clip-sm);
+}
+.series-card:hover {
+  background: var(--black-3);
+}
+.series-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 100%; height: 3px;
+  background: var(--orange);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s;
+}
+.series-card:hover::after { transform: scaleX(1); }
+.series-num {
+  font-family: var(--font-display);
+  font-size: 80px;
+  color: var(--white-05);
+  position: absolute;
+  top: -10px;
+  right: 20px;
+  line-height: 1;
+}
+.series-icon { font-size: 36px; margin-bottom: 16px; }
+.series-name {
+  font-family: var(--font-heading);
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.series-name span { color: var(--orange); }
+.series-tag {
+  font-size: 14px;
+  color: var(--white-30);
+  margin-top: 8px;
+  font-weight: 500;
+}
+.series-link {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--orange);
+  text-transform: uppercase;
+  margin-top: 20px;
+  display: inline-block;
+}
+
+/* ============================================================
+   DATA CARDS — Big numbers, MODbox style
+   ============================================================ */
+.data-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2px;
+  margin-top: 48px;
+}
+.data-card {
+  background: var(--black-2);
+  padding: 48px 36px;
+  text-align: center;
+  transition: all 0.3s;
+  clip-path: var(--clip-sm);
+}
+.data-card:hover { background: var(--black-3); }
+.data-num {
+  font-family: var(--font-display);
+  font-size: 56px;
+  color: var(--orange);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+.data-label {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+.data-desc {
+  font-size: 13px;
+  color: var(--white-30);
+  margin-top: 6px;
+}
+
+/* ============================================================
+   PRODUCT GRID
+   ============================================================ */
+.prod-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 2px;
+  margin-top: 32px;
+}
+.prod-card {
+  background: var(--black-2);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.25s;
+  clip-path: var(--clip-sm);
+}
+.prod-card:hover {
+  background: var(--black-3);
+  transform: translateY(-4px);
+}
+.prod-img {
+  height: 220px;
+  background: var(--black-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  color: var(--white-05);
+  position: relative;
+}
+.prod-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: var(--orange);
+  color: var(--black);
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 5px 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  clip-path: var(--clip-sm);
+}
+.prod-badge.sale { background: #E53935; color: #fff; }
+.prod-badge.best { background: #FFB800; left: auto; right: 12px; }
+.prod-body { padding: 22px; }
+.prod-series {
+  font-size: 11px;
+  color: var(--orange);
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.prod-name {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+  line-height: 1.2;
+}
+.prod-price {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--white);
+  margin-top: 8px;
+  letter-spacing: 1px;
+}
+.prod-price s {
+  font-size: 15px;
+  color: var(--white-30);
+  margin-left: 8px;
+  font-family: var(--font-body);
+}
+.prod-rating {
+  font-size: 12px;
+  color: #FFB800;
+  margin-top: 6px;
+}
+.prod-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 14px;
+}
+.prod-actions button {
+  flex: 1;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 9px 12px;
+  cursor: pointer;
+  border: 1px solid var(--white-10);
+  background: transparent;
+  color: var(--white-60);
+  transition: all 0.2s;
+  clip-path: var(--clip-sm);
+}
+.prod-actions button:hover { border-color: var(--orange); color: var(--orange); }
+.prod-actions button.primary {
+  background: var(--orange);
+  color: var(--black);
+  border-color: var(--orange);
+}
+.prod-actions button.primary:hover { background: var(--white); border-color: var(--white); }
+
+/* ============================================================
+   SHOP FILTERS
+   ============================================================ */
+.shop-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 32px;
+  margin-top: 32px;
+}
+.filter-sidebar {
+  background: var(--black-2);
+  padding: 28px;
+  border: 1px solid var(--white-05);
+  position: sticky;
+  top: 96px;
+  align-self: start;
+  clip-path: var(--clip-sm);
+}
+.filter-group { margin-bottom: 28px; }
+.filter-title {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 14px;
+}
+.filter-opt {
+  display: block;
+  font-size: 13px;
+  color: var(--white-30);
+  padding: 6px 0;
+  cursor: pointer;
+  transition: color 0.15s;
+  font-weight: 500;
+}
+.filter-opt:hover, .filter-opt.active { color: var(--orange); }
+.sort-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+.sort-row select {
+  background: var(--black-2);
+  color: var(--white);
+  border: 1px solid var(--white-10);
+  padding: 10px 14px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  clip-path: var(--clip-sm);
+}
+.result-count { font-size: 14px; color: var(--white-30); font-weight: 500; }
+
+/* ============================================================
+   PRODUCT DETAIL PAGE
+   ============================================================ */
+.pdp-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 56px;
+  align-items: start;
+  margin-top: 32px;
+}
+.pdp-gallery { position: sticky; top: 100px; }
+.pdp-main-img {
+  width: 100%;
+  aspect-ratio: 1;
+  background: var(--black-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 140px;
+  color: var(--white-03);
+  position: relative;
+  clip-path: var(--clip-md);
+}
+.pdp-thumbs { display: flex; gap: 8px; margin-top: 12px; }
+.pdp-thumb {
+  width: 68px; height: 68px;
+  background: var(--black-2);
+  border: 1px solid var(--white-05);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  color: var(--white-20);
+  clip-path: var(--clip-sm);
+}
+.pdp-thumb:hover, .pdp-thumb.active { border-color: var(--orange); color: var(--orange); }
+
+.pdp-series {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--orange);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.pdp-title {
+  font-family: var(--font-display);
+  font-size: 44px;
+  letter-spacing: -0.5px;
+  line-height: 1.05;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.pdp-model {
+  font-size: 14px;
+  color: var(--white-30);
+  font-weight: 500;
+  margin-bottom: 16px;
+}
+.pdp-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #FFB800;
+}
+.pdp-rating span { color: var(--white-30); }
+.pdp-price {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.pdp-price .now {
+  font-family: var(--font-display);
+  font-size: 40px;
+  letter-spacing: 1px;
+}
+.pdp-price s {
+  font-size: 20px;
+  color: var(--white-30);
+}
+.pdp-price .save {
+  background: #E53935;
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  letter-spacing: 1px;
+  clip-path: var(--clip-sm);
+}
+
+.highlights {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  padding: 20px;
+  background: var(--black-2);
+  clip-path: var(--clip-sm);
+  margin-bottom: 24px;
+}
+.hl-item {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--white-60);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.hl-dot { width: 7px; height: 7px; background: var(--orange); }
+
+.pdp-variants { margin-bottom: 20px; }
+.var-label {
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--white-30);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.var-label span { color: var(--white); }
+.var-opts { display: flex; gap: 8px; flex-wrap: wrap; }
+.var-opt {
+  padding: 10px 18px;
+  background: var(--black-2);
+  border: 2px solid var(--white-05);
+  color: var(--white-60);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  clip-path: var(--clip-sm);
+}
+.var-opt:hover { border-color: var(--white-30); }
+.var-opt.active { border-color: var(--orange); color: var(--orange); }
+
+.pdp-qty {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+.pdp-qty button {
+  width: 40px; height: 40px;
+  background: var(--black-2);
+  border: 1px solid var(--white-10);
+  color: var(--white);
+  font-size: 16px;
+  cursor: pointer;
+  font-weight: 700;
+  clip-path: var(--clip-sm);
+}
+.pdp-qty input {
+  width: 56px; height: 40px;
+  text-align: center;
+  background: var(--black);
+  border: 1px solid var(--white-10);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+}
+.stock-ok {
+  font-size: 12px;
+  color: #00C853;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-left: 12px;
+}
+
+.pdp-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 20px; }
+.pdp-ctas button { flex: 1; min-width: 160px; }
+.pdp-trust {
+  font-size: 11px;
+  color: var(--white-30);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   CHECKOUT
+   ============================================================ */
+.checkout-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  margin-top: 32px;
+}
+.checkout-form {
+  background: var(--black-2);
+  padding: 36px;
+  clip-path: var(--clip-md);
+}
+.form-section { margin-bottom: 32px; }
+.form-section h3 {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--white-05);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-bottom: 14px; }
+.form-row.full { grid-template-columns: 1fr; }
+.form-group label {
+  display: block;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white-30);
+  margin-bottom: 6px;
+}
+.form-group input, .form-group select {
+  width: 100%;
+  background: var(--black);
+  border: 1px solid var(--white-10);
+  padding: 13px 16px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+  clip-path: var(--clip-sm);
+}
+.form-group input:focus, .form-group select:focus { border-color: var(--orange); }
+
+.order-summary {
+  background: var(--black-2);
+  padding: 32px;
+  position: sticky;
+  top: 100px;
+  align-self: start;
+  clip-path: var(--clip-md);
+}
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  color: var(--white-60);
+}
+.summary-line.total {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--white);
+  border-top: 1px solid var(--white-05);
+  margin-top: 10px;
+  padding-top: 14px;
+  letter-spacing: 1px;
+}
+
+.pay-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.pay-method {
+  background: var(--black);
+  border: 2px solid var(--white-05);
+  padding: 14px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: var(--white-30);
+  clip-path: var(--clip-sm);
+}
+.pay-method:hover, .pay-method.active { border-color: var(--orange); color: var(--orange); }
+
+/* ============================================================
+   CART
+   ============================================================ */
+.cart-item {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid var(--white-05);
+}
+.cart-thumb {
+  width: 90px; height: 90px;
+  background: var(--black-3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: var(--white-05);
+  flex-shrink: 0;
+  clip-path: var(--clip-sm);
+}
+.cart-info { flex: 1; }
+.cart-name {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.cart-variant { font-size: 12px; color: var(--white-30); margin-top: 4px; }
+.cart-price {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--orange);
+  letter-spacing: 1px;
+}
+.cart-qty { display: flex; align-items: center; gap: 4px; }
+.cart-qty button {
+  width: 30px; height: 30px;
+  background: var(--black-2);
+  border: 1px solid var(--white-10);
+  color: var(--white);
+  cursor: pointer;
+  font-size: 14px;
+  clip-path: var(--clip-sm);
+}
+.cart-qty input {
+  width: 44px; height: 30px;
+  text-align: center;
+  background: var(--black);
+  border: 1px solid var(--white-10);
+  color: var(--white);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+}
+.cart-remove {
+  color: #E53935;
+  cursor: pointer;
+  background: none;
+  border: none;
+  font-size: 18px;
+  padding: 6px;
+}
+.empty-state { text-align: center; padding: 100px 20px; }
+.empty-icon { font-size: 72px; margin-bottom: 20px; }
+.empty-text { font-size: 20px; color: var(--white-30); margin-bottom: 24px; font-weight: 500; }
+
+/* ============================================================
+   SUCCESS PAGE
+   ============================================================ */
+.success-page { text-align: center; padding: 120px 40px; }
+.success-icon { font-size: 90px; margin-bottom: 24px; }
+.success-title {
+  font-family: var(--font-display);
+  font-size: 52px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.success-order { font-size: 18px; color: var(--white-30); margin-bottom: 36px; }
+
+/* ============================================================
+   ABOUT / IMPORTED HERO
+   ============================================================ */
+.page-hero {
+  padding: 100px 40px;
+  text-align: center;
+  background: linear-gradient(180deg, var(--black-2) 0%, var(--black) 100%);
+}
+.page-hero .hero-title { max-width: 100%; }
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 60px 40px;
+}
+.about-content h2 {
+  font-family: var(--font-display);
+  font-size: 40px;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+.about-content p {
+  font-size: 16px;
+  color: var(--white-60);
+  line-height: 1.9;
+  margin-bottom: 24px;
+}
+
+/* ============================================================
+   DEALER CTA
+   ============================================================ */
+.dealer-cta {
+  background: var(--orange);
+  padding: 100px 40px;
+  text-align: center;
+  clip-path: polygon(0 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%);
+}
+.dealer-cta h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 5vw, 56px);
+  letter-spacing: 1px;
+  color: var(--black);
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.dealer-cta p { color: rgba(0,0,0,0.5); font-size: 16px; margin-bottom: 32px; max-width: 500px; margin-left: auto; margin-right: auto; }
+
+/* ============================================================
+   IMPORTED HERO
+   ============================================================ */
+.imported-hero {
+  padding: 100px 40px;
+  text-align: center;
+  background: linear-gradient(180deg, #1a1208 0%, var(--black) 100%);
+}
+.imported-badge {
+  display: inline-block;
+  background: #FFB800;
+  color: var(--black);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  padding: 6px 16px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  clip-path: var(--clip-sm);
+}
+
+/* ============================================================
+   CART SIDEBAR
+   ============================================================ */
+.cart-sidebar {
+  position: fixed;
+  top: 0; right: -440px;
+  width: 420px;
+  height: 100vh;
+  background: var(--black-2);
+  z-index: 2000;
+  transition: right 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -20px 0 60px rgba(0,0,0,0.5);
+}
+.cart-sidebar.open { right: 0; }
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  z-index: 1999;
+  display: none;
+}
+.cart-overlay.open { display: block; }
+.cart-sb-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 28px;
+  border-bottom: 1px solid var(--white-05);
+}
+.cart-sb-title {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.cart-sb-close { background: none; border: none; color: var(--white); font-size: 24px; cursor: pointer; }
+.cart-sb-items { flex: 1; overflow-y: auto; padding: 16px 28px; }
+.cart-sb-footer { padding: 22px 28px; border-top: 1px solid var(--white-05); }
+.cart-sb-total {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+  font-family: var(--font-heading);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ============================================================
+   MOBILE NAV
+   ============================================================ */
+.mobile-nav {
+  position: fixed;
+  top: 0; left: -100%;
+  width: 300px;
+  height: 100vh;
+  background: var(--black-2);
+  z-index: 2001;
+  transition: left 0.3s ease;
+  padding: 28px;
+  overflow-y: auto;
+}
+.mobile-nav.open { left: 0; }
+.mobile-nav a {
+  display: block;
+  padding: 14px 0;
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white-60);
+  border-bottom: 1px solid var(--white-05);
+  cursor: pointer;
+}
+.mobile-nav a:hover { color: var(--orange); }
+.mob-close { text-align: right; margin-bottom: 20px; }
+.mob-close button { background: none; border: none; color: var(--white); font-size: 24px; cursor: pointer; }
+
+/* ============================================================
+   TOAST
+   ============================================================ */
+.toast {
+  position: fixed;
+  bottom: 30px; left: 50%;
+  transform: translateX(-50%);
+  background: #00C853;
+  color: var(--black);
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  padding: 14px 32px;
+  z-index: 3000;
+  opacity: 0;
+  transition: opacity 0.3s;
+  clip-path: var(--clip-sm);
+}
+.toast.show { opacity: 1; }
+
+/* ============================================================
+   WHATSAPP FLOAT
+   ============================================================ */
+.whatsapp-float {
+  position: fixed;
+  bottom: 28px; right: 28px;
+  width: 58px; height: 58px;
+  background: #25D366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1500;
+  box-shadow: 0 6px 24px rgba(37,211,102,0.4);
+  transition: transform 0.2s;
+}
+.whatsapp-float:hover { transform: scale(1.1); }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.footer {
+  background: var(--black);
+  padding: 80px 40px 40px;
+  border-top: 1px solid var(--white-05);
+}
+.footer-grid {
+  max-width: var(--max);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 48px;
+}
+.ft-title {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 18px;
+}
+.ft-links a {
+  display: block;
+  color: var(--white-30);
+  font-size: 13px;
+  padding: 4px 0;
+  cursor: pointer;
+  transition: color 0.15s;
+  font-weight: 500;
+}
+.ft-links a:hover { color: var(--orange); }
+.ft-bottom {
+  max-width: var(--max);
+  margin: 60px auto 0;
+  padding-top: 28px;
+  border-top: 1px solid var(--white-05);
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.ft-copy { font-size: 12px; color: var(--white-30); font-weight: 500; }
+
+/* ============================================================
+   NEWSLETTER
+   ============================================================ */
+.newsletter {
+  background: var(--black-2);
+  padding: 80px 40px;
+  text-align: center;
+  border-top: 1px solid var(--white-05);
+  border-bottom: 1px solid var(--white-05);
+}
+.newsletter-form { display: flex; gap: 10px; margin-top: 28px; max-width: 520px; margin-left: auto; margin-right: auto; }
+.newsletter-input {
+  flex: 1;
+  background: var(--black);
+  border: 2px solid var(--white-05);
+  padding: 14px 20px;
+  color: var(--white);
+  font-family: var(--font-body);
+  font-size: 15px;
+  outline: none;
+  clip-path: var(--clip-sm);
+}
+.newsletter-input:focus { border-color: var(--orange); }
+.newsletter-input::placeholder { color: var(--white-30); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 900px) {
+  .nav { display: none; }
+  .hamburger { display: block; }
+  .shop-layout { grid-template-columns: 1fr; }
+  .filter-sidebar { position: static; margin-bottom: 20px; }
+  .pdp-layout { grid-template-columns: 1fr; gap: 28px; }
+  .pdp-gallery { position: static; }
+  .checkout-layout { grid-template-columns: 1fr; }
+  .cart-sidebar { width: 100%; right: -100%; }
+  .hero-title { font-size: 38px; }
+  .section { padding: 80px 20px; }
+  .hdr-in { padding: 0 20px; height: 60px; }
+  .eco-unit.stack-tall, .eco-unit.stack-mid, .eco-unit.stack-base, .eco-unit.stack-side { width: 100%; height: auto; min-height: 100px; }
+  .eco-conn { display: none; }
+  .section-title { font-size: 32px; }
+}
+
+/* ============================================================
+   ANIMATIONS
+   ============================================================ */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="announce">
+  &#9889; FREE SHIPPING ORDERS OVER $149 <span>|</span> LIFETIME WARRANTY <span>|</span> 30-DAY RETURNS
+</div>
+
+<!-- HEADER -->
+<header class="header">
+<div class="hdr-in">
+<a class="logo" onclick="navigate('home')">
+  <div class="logo-m">M</div>MAX<span>GRARPRO</span>
+</a>
+<nav class="nav" id="mainNav">
+<a onclick="navigate('shop')">Shop</a>
+<a onclick="navigate('shop');filterCategory('Modular Storage')">Systems</a>
+<a onclick="navigate('shop');filterCategory('Tool Boxes')">Tool Boxes</a>
+<a onclick="navigate('shop');filterCategory('Storage')">Storage</a>
+<a onclick="navigate('shop');filterCategory('Accessories')">Accessories</a>
+<a onclick="navigate('imported')">Imported</a>
+<a onclick="navigate('about')">About</a>
+<a onclick="navigate('about')">Dealers</a>
+<a onclick="navigate('contact')">Contact</a>
+</nav>
+<div class="hdr-act">
+<select class="hdr-act-select"><option>EN</option><option>ES</option><option>DE</option><option>FR</option><option>AR</option><option>ZH</option></select>
+<select class="hdr-act-select"><option>USD $</option><option>EUR €</option><option>GBP £</option></select>
+<button class="ic-btn">&#128269;</button>
+<button class="ic-btn">&#128100;</button>
+<button class="ic-btn" onclick="toggleCart()">&#128722;<span class="cart-badge" id="cartCount">0</span></button>
+<button class="hamburger" onclick="toggleMobileNav()">&#9776;</button>
+</div>
+</div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+<div class="mob-close"><button onclick="toggleMobileNav()">&times;</button></div>
+<a onclick="navigate('home');toggleMobileNav()">Home</a>
+<a onclick="navigate('shop');toggleMobileNav()">Shop</a>
+<a onclick="navigate('shop');filterCategory('Modular Storage');toggleMobileNav()">Modular Systems</a>
+<a onclick="navigate('shop');filterCategory('Tool Boxes');toggleMobileNav()">Tool Boxes</a>
+<a onclick="navigate('shop');filterCategory('Storage');toggleMobileNav()">Storage</a>
+<a onclick="navigate('shop');filterCategory('Accessories');toggleMobileNav()">Accessories</a>
+<a onclick="navigate('imported');toggleMobileNav()">Imported</a>
+<a onclick="navigate('about');toggleMobileNav()">About</a>
+</div>
+
+<!-- CART OVERLAY + SIDEBAR -->
+<div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+<div class="cart-sidebar" id="cartSidebar">
+<div class="cart-sb-header">
+<span class="cart-sb-title">Cart (<span id="sbCartCount">0</span>)</span>
+<button class="cart-sb-close" onclick="toggleCart()">&times;</button>
+</div>
+<div class="cart-sb-items" id="cartItems"></div>
+<div class="cart-sb-footer">
+<div class="cart-sb-total"><span>Subtotal</span><span id="cartTotal">$0.00</span></div>
+<button class="btn btn-primary btn-block" onclick="toggleCart();navigate('checkout')">Checkout</button>
+<button class="btn btn-outline btn-sm btn-block" style="margin-top:8px" onclick="navigate('cart')">View Cart</button>
+</div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"></div>
+
+<!-- WHATSAPP -->
+<a class="whatsapp-float" href="https://wa.me/86187628128245?text=Hi%20MAXGRARPRO" target="_blank" title="Chat on WhatsApp">&#128172;</a>
+
+<!-- ==================================================================
+     PAGE: HOME
+     ================================================================== -->
+<div class="page active" id="page-home">
+
+<!-- HERO -->
+<section class="hero">
+<div class="hero-video-wrap">
+  <video autoplay muted loop playsinline>
+    <source src="video-hero.mp4" type="video/mp4">
+  </video>
+  <div class="hero-video-fallback"></div>
+</div>
+<div class="hero-overlay"></div>
+<div class="hero-geo-1"></div>
+<div class="hero-geo-2"></div>
+<div class="hero-content">
+<div class="hero-eyebrow">MAXGRARPRO</div>
+<h1 class="hero-title">BUILT FOR <em>PROFESSIONALS.</em></h1>
+<p class="hero-subtitle">Industrial-grade modular storage systems engineered for the toughest jobsites on earth. Real jobsite tested. Built to outlast.</p>
+<div class="hero-ctas">
+<button class="btn btn-primary" onclick="navigate('shop')">&#128722; Shop Now</button>
+<button class="btn btn-outline" onclick="navigate('shop');filterCategory('Modular Storage')">Explore Systems</button>
+</div>
+<div class="trust-row">
+<div class="trust-item"><span class="trust-dot"></span>Lifetime Warranty</div>
+<div class="trust-item"><span class="trust-dot"></span>IP65 Rated</div>
+<div class="trust-item"><span class="trust-dot"></span>1,500 lbs Capacity</div>
+<div class="trust-item"><span class="trust-dot"></span>Free Shipping $149+</div>
+</div>
+</div>
+</section>
+
+<!-- MODULAR ECOSYSTEM -->
+<section class="section">
+<div class="section-label">Modular Ecosystem</div>
+<h2 class="section-title">INFINITE<br>CONFIGURATIONS.</h2>
+<p class="section-subtitle">Every MAXGRARPRO unit connects, stacks, and rolls as one integrated system. Build your setup — tool by tool, box by box.</p>
+<div class="eco-wrap">
+<div class="eco-unit stack-tall" onclick="navigate('product','fs-t100')">
+<div class="eco-icon">&#128230;</div><div class="eco-name">ORGANIZER</div><div class="eco-desc">Top-Level Storage</div></div>
+<div class="eco-conn"></div>
+<div class="eco-unit stack-mid" onclick="navigate('product','fs-m200')">
+<div class="eco-icon">&#128297;</div><div class="eco-name">FLEXSTACK MID</div><div class="eco-desc">Modular Middle</div></div>
+<div class="eco-conn"></div>
+<div class="eco-unit stack-base" onclick="navigate('product','fs-r300')">
+<div class="eco-icon">&#128666;</div><div class="eco-name">ROLLING BASE</div><div class="eco-desc">Heavy-Duty Foundation</div></div>
+<div class="eco-conn"></div>
+<div class="eco-unit stack-side" onclick="navigate('product','fs-c50')">
+<div class="eco-icon">&#128736;</div><div class="eco-name">SIDE CRATE</div><div class="eco-desc">Clip-On</div></div>
+</div>
+</section>
+
+<!-- PRODUCT SERIES -->
+<div class="section-dark" style="padding:120px 0">
+<div style="max-width:var(--max);margin:0 auto;padding:0 40px">
+<div class="section-label">Product Series</div>
+<h2 class="section-title">ENGINEERED FOR<br>EVERY TRADE.</h2>
+<div class="series-grid">
+<div class="series-card" onclick="navigate('shop');filterCategory('TITAN')">
+<div class="series-num">01</div><div class="series-icon">&#128274;</div>
+<div class="series-name"><span>TITAN</span></div><div class="series-tag">Heavy-Duty Chests — Built Like a Vault</div>
+<div class="series-link">Explore &rarr;</div></div>
+<div class="series-card" onclick="navigate('shop');filterCategory('FLEXSTACK')">
+<div class="series-num">02</div><div class="series-icon">&#128451;</div>
+<div class="series-name"><span>FLEXSTACK</span></div><div class="series-tag">Modular Stacking — Configure Your Way</div>
+<div class="series-link">Explore &rarr;</div></div>
+<div class="series-card" onclick="navigate('shop');filterCategory('MOBILOX')">
+<div class="series-num">03</div><div class="series-icon">&#128666;</div>
+<div class="series-name"><span>MOBILOX</span></div><div class="series-tag">Mobile Workstations — Move With Purpose</div>
+<div class="series-link">Explore &rarr;</div></div>
+<div class="series-card" onclick="navigate('shop');filterCategory('IRONVAULT')">
+<div class="series-num">04</div><div class="series-icon">&#127970;</div>
+<div class="series-name"><span>IRONVAULT</span></div><div class="series-tag">Steel Storage — Industrial Strength</div>
+<div class="series-link">Explore &rarr;</div></div>
+<div class="series-card" onclick="navigate('shop');filterCategory('PROGRID')">
+<div class="series-num">05</div><div class="series-icon">&#128295;</div>
+<div class="series-name"><span>PROGRID</span></div><div class="series-tag">Precision Accessories — Every Tool in Place</div>
+<div class="series-link">Explore &rarr;</div></div>
+</div>
+</div></div>
+
+<!-- DATA / WHY -->
+<section class="section">
+<div class="section-label">Why MAXGRARPRO</div>
+<h2 class="section-title">INDUSTRIAL<br>GRADE.</h2>
+<div class="data-grid">
+<div class="data-card"><div class="data-num">1,500</div><div class="data-label">LBS CAPACITY</div><div class="data-desc">Heavy load rating per unit</div></div>
+<div class="data-card"><div class="data-num">IP65</div><div class="data-label">WATERPROOF</div><div class="data-desc">Dust-tight + water jet resistant</div></div>
+<div class="data-card"><div class="data-num">5</div><div class="data-label">MODULAR SERIES</div><div class="data-desc">One connected ecosystem</div></div>
+<div class="data-card"><div class="data-num">LIFETIME</div><div class="data-label">WARRANTY</div><div class="data-desc">Industry-leading guarantee</div></div>
+</div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="section-dark" style="padding:120px 0">
+<div style="max-width:var(--max);margin:0 auto;padding:0 40px">
+<div class="section-label">Testimonials</div>
+<h2 class="section-title">TRUSTED BY<br>PROS WORLDWIDE.</h2>
+<div class="series-grid">
+<div class="series-card"><div style="color:#FFB800;margin-bottom:12px;font-size:15px">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="font-size:15px;color:var(--white-60);line-height:1.7;font-style:italic">"Switched to MAXGRARPRO FLEXSTACK — best decision in 15 years. The system actually connects the way it should."</p><div style="font-family:var(--font-heading);font-size:13px;font-weight:700;letter-spacing:2px;margin-top:16px;text-transform:uppercase">Mike R.</div><div style="font-size:12px;color:var(--white-30)">Licensed Electrician, Texas</div></div>
+<div class="series-card"><div style="color:#FFB800;margin-bottom:12px;font-size:15px">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="font-size:15px;color:var(--white-60);line-height:1.7;font-style:italic">"The TITAN rolling box survived a full season of construction without a scratch. These things are tanks."</p><div style="font-family:var(--font-heading);font-size:13px;font-weight:700;letter-spacing:2px;margin-top:16px;text-transform:uppercase">James K.</div><div style="font-size:12px;color:var(--white-30)">General Contractor, Ontario</div></div>
+<div class="series-card"><div style="color:#FFB800;margin-bottom:12px;font-size:15px">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p style="font-size:15px;color:var(--white-60);line-height:1.7;font-style:italic">"Finally a modular system that connects properly. No wobble, no gaps. My workshop has never been this organized."</p><div style="font-family:var(--font-heading);font-size:13px;font-weight:700;letter-spacing:2px;margin-top:16px;text-transform:uppercase">Luis M.</div><div style="font-size:12px;color:var(--white-30)">Workshop Owner, Barcelona</div></div>
+</div>
+</div></section>
+
+<!-- DEALER -->
+<section class="dealer-cta">
+<div style="font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:4px;color:rgba(0,0,0,0.5);text-transform:uppercase;margin-bottom:16px">Partner With Us</div>
+<h2>BECOME A DEALER.</h2>
+<p>Join our global network. Exclusive pricing, dedicated support, and a brand professionals trust.</p>
+<button class="btn btn-dark" onclick="navigate('about')">Apply Now</button>
+</section>
+
+<!-- BLOG -->
+<section class="section">
+<div class="section-label">From The Jobsite</div>
+<h2 class="section-title">LATEST<br>INSIGHTS.</h2>
+<div class="series-grid">
+<div class="series-card"><div style="font-size:11px;color:var(--orange);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">May 15, 2026</div><div class="series-name" style="font-size:18px;text-transform:none;letter-spacing:0">How to Organize Your Rolling Tool Box for Maximum Efficiency</div><div class="series-tag">Pro organizer techniques that save time on every job.</div></div>
+<div class="series-card"><div style="font-size:11px;color:var(--orange);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">May 8, 2026</div><div class="series-name" style="font-size:18px;text-transform:none;letter-spacing:0">IP Ratings Explained: What Waterproof Really Means for Tool Storage</div><div class="series-tag">Understanding what protection level you actually need.</div></div>
+<div class="series-card"><div style="font-size:11px;color:var(--orange);font-weight:700;letter-spacing:2px;text-transform:uppercase;margin-bottom:8px">Apr 28, 2026</div><div class="series-name" style="font-size:18px;text-transform:none;letter-spacing:0">The Complete Guide to Modular Tool Storage in 2026</div><div class="series-tag">Comparing ecosystems and what to look for.</div></div>
+</div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="newsletter">
+<div class="section-label">Stay Connected</div>
+<h2 class="section-title" style="font-size:40px">GET THE LATEST.</h2>
+<p class="section-subtitle" style="margin:0 auto">Product launches, pro tips, and exclusive offers — straight to your inbox.</p>
+<form class="newsletter-form" onsubmit="event.preventDefault()">
+<input type="email" class="newsletter-input" placeholder="Your email address" required>
+<button type="submit" class="btn btn-primary">Subscribe</button>
+</form>
+</section>
+
+</div><!-- END HOME -->
+
+<!-- ==================================================================
+     PAGE: SHOP
+     ================================================================== -->
+<div class="page" id="page-shop">
+<section class="section">
+<div class="section-label">Shop All</div>
+<h2 class="section-title">ALL PRODUCTS.</h2>
+<div class="shop-layout">
+<div class="filter-sidebar">
+<div class="filter-group">
+<div class="filter-title">Series</div>
+<div class="filter-opt active" onclick="setFilter('category','all',this)">All Products</div>
+<div class="filter-opt" onclick="setFilter('category','FLEXSTACK',this)">FLEXSTACK</div>
+<div class="filter-opt" onclick="setFilter('category','TITAN',this)">TITAN</div>
+<div class="filter-opt" onclick="setFilter('category','MOBILOX',this)">MOBILOX</div>
+<div class="filter-opt" onclick="setFilter('category','IRONVAULT',this)">IRONVAULT</div>
+<div class="filter-opt" onclick="setFilter('category','PROGRID',this)">PROGRID</div>
+<div class="filter-opt" onclick="setFilter('category','New',this)">New Arrivals</div>
+<div class="filter-opt" onclick="setFilter('category','Best Seller',this)">Best Sellers</div>
+</div>
+<div class="filter-group">
+<div class="filter-title">Type</div>
+<div class="filter-opt" onclick="setFilter('type','all',this)">All Types</div>
+<div class="filter-opt" onclick="setFilter('type','Modular Storage',this)">Modular Storage</div>
+<div class="filter-opt" onclick="setFilter('type','Tool Boxes',this)">Tool Boxes</div>
+<div class="filter-opt" onclick="setFilter('type','Storage',this)">Storage</div>
+<div class="filter-opt" onclick="setFilter('type','Accessories',this)">Accessories</div>
+</div>
+<div class="filter-group">
+<div class="filter-title">Price</div>
+<div class="filter-opt" onclick="setFilter('price','all',this)">All</div>
+<div class="filter-opt" onclick="setFilter('price','under100',this)">Under $100</div>
+<div class="filter-opt" onclick="setFilter('price','100-300',this)">$100 – $300</div>
+<div class="filter-opt" onclick="setFilter('price','over300',this)">$300+</div>
+</div>
+</div>
+<div>
+<div class="sort-row">
+<span class="result-count" id="resultCount">12 products</span>
+<select onchange="sortProducts(this.value)"><option value="default">Featured</option><option value="price-asc">Price: Low–High</option><option value="price-desc">Price: High–Low</option><option value="name">Name</option><option value="rating">Top Rated</option></select>
+</div>
+<div class="prod-grid" id="shopGrid"></div>
+</div>
+</div>
+</section>
+</div>
+
+<!-- ==================================================================
+     PAGE: PRODUCT DETAIL
+     ================================================================== -->
+<div class="page" id="page-product">
+<section class="section">
+<nav style="font-size:12px;color:var(--white-30);margin-bottom:28px;font-weight:500">
+<span onclick="navigate('shop')" style="cursor:pointer;color:var(--white-60)">Shop</span> / <span id="pdpBreadcrumb" style="color:var(--orange)">Product</span>
+</nav>
+<div class="pdp-layout">
+<div class="pdp-gallery">
+<div class="pdp-main-img" id="pdpMainImg">&#128666;</div>
+<div class="pdp-thumbs">
+<div class="pdp-thumb active" onclick="changePdpThumb(this,'&#128666;')">&#128666;</div>
+<div class="pdp-thumb" onclick="changePdpThumb(this,'&#128247;')">&#128247;</div>
+<div class="pdp-thumb" onclick="changePdpThumb(this,'&#9654;')">&#9654;</div>
+</div>
+</div>
+<div class="pdp-info">
+<div class="pdp-series" id="pdpSeries">FLEXSTACK Series</div>
+<h1 class="pdp-title" id="pdpTitle">ROLLING TOOL BOX</h1>
+<div class="pdp-model" id="pdpModel">FS-R300</div>
+<div class="pdp-rating">&#9733;&#9733;&#9733;&#9733;&#9733; <span id="pdpRatingCount">4.8 — 247 Reviews</span></div>
+<div class="pdp-price"><span class="now" id="pdpPriceNow">$299.99</span><s id="pdpPriceOrig">$379.99</s><span class="save" id="pdpSave">SAVE $80</span></div>
+<div class="highlights" id="pdpHighlights"></div>
+<div class="pdp-variants"><div class="var-label">Size: <span id="varSizeLabel">Large</span></div><div class="var-opts" id="varSize"></div></div>
+<div class="pdp-variants"><div class="var-label">Color: <span id="varColorLabel">Matte Black</span></div><div class="var-opts" id="varColor"></div></div>
+<div class="pdp-qty"><button onclick="changePdpQty(-1)">−</button><input id="pdpQty" value="1" readonly><button onclick="changePdpQty(1)">+</button><span class="stock-ok">&#10003; In Stock</span></div>
+<div class="pdp-ctas">
+<button class="btn btn-primary" onclick="addToCartFromPdp()">&#128722; Add to Cart</button>
+<button class="btn btn-outline" style="background:#FFB800;color:var(--black);border-color:#FFB800" onclick="addToCartFromPdp();navigate('checkout')">Buy Now</button>
+</div>
+<div class="pdp-ctas">
+<button class="btn btn-outline btn-sm">&#9993; B2B Quote</button>
+<button class="btn btn-outline btn-sm" style="background:#25D366;color:#fff;border-color:#25D366" onclick="window.open('https://wa.me/86187628128245')">&#128172; WhatsApp</button>
+</div>
+<div class="pdp-trust">&#10003; Lifetime Warranty &bull; Free Shipping $149+ &bull; 30-Day Returns</div>
+</div>
+</div>
+<div style="margin-top:56px">
+<div class="section-label">Compatible With</div>
+<h2 class="section-title" style="font-size:32px">ECOSYSTEM.</h2>
+<div class="prod-grid" id="compatGrid"></div>
+</div>
+</section>
+</div>
+
+<!-- ==================================================================
+     PAGE: CART, CHECKOUT, SUCCESS, ABOUT, IMPORTED
+     (same logic as v1, re-styled with MODbox CSS)
+     ================================================================== -->
+<div class="page" id="page-cart">
+<section class="section">
+<div class="section-label">Shopping Cart</div>
+<h2 class="section-title">YOUR CART.</h2>
+<div id="fullCartItems"></div>
+<div id="cartEmptyState" class="empty-state" style="display:none"><div class="empty-icon">&#128722;</div><div class="empty-text">Your cart is empty</div><button class="btn btn-primary" onclick="navigate('shop')">Start Shopping</button></div>
+<div id="cartSummary" style="margin-top:36px;text-align:right"><div style="font-family:var(--font-heading);font-size:22px;font-weight:700;letter-spacing:2px;margin-bottom:18px;color:var(--white)">Subtotal: <span id="cartSummaryTotal" style="color:var(--orange)">$0.00</span></div><button class="btn btn-primary" onclick="navigate('checkout')">Proceed to Checkout</button></div>
+</section>
+</div>
+
+<div class="page" id="page-checkout">
+<section class="section">
+<div class="section-label">Checkout</div>
+<h2 class="section-title">SECURE CHECKOUT.</h2>
+<div class="checkout-layout">
+<div class="checkout-form">
+<div class="form-section"><h3>Shipping</h3>
+<div class="form-row"><div class="form-group"><label>First Name</label><input placeholder="John"></div><div class="form-group"><label>Last Name</label><input placeholder="Smith"></div></div>
+<div class="form-row full"><div class="form-group"><label>Email</label><input type="email" placeholder="john@example.com"></div></div>
+<div class="form-row full"><div class="form-group"><label>Address</label><input placeholder="123 Main St"></div></div>
+<div class="form-row"><div class="form-group"><label>City</label><input placeholder="New York"></div><div class="form-group"><label>State</label><input placeholder="NY"></div></div>
+<div class="form-row"><div class="form-group"><label>ZIP</label><input placeholder="10001"></div><div class="form-group"><label>Country</label><select><option>United States</option><option>Canada</option><option>UK</option><option>Germany</option><option>Australia</option></select></div></div>
+</div>
+<div class="form-section"><h3>Shipping Method</h3>
+<div class="pay-methods"><div class="pay-method active" onclick="selectPayMethod(this)">UPS Ground — Free</div><div class="pay-method" onclick="selectPayMethod(this)">FedEx 2-Day — $19.99</div><div class="pay-method" onclick="selectPayMethod(this)">DHL Express — $39.99</div><div class="pay-method" onclick="selectPayMethod(this)">Pick Up</div></div></div>
+<div class="form-section"><h3>Payment</h3>
+<div class="pay-methods"><div class="pay-method active" onclick="selectPayMethod(this)">Credit Card</div><div class="pay-method" onclick="selectPayMethod(this)">PayPal</div><div class="pay-method" onclick="selectPayMethod(this)">Apple Pay</div><div class="pay-method" onclick="selectPayMethod(this)">Klarna</div></div>
+<div style="margin-top:16px"><div class="form-row full"><div class="form-group"><label>Card Number</label><input placeholder="4242 4242 4242 4242"></div></div>
+<div class="form-row"><div class="form-group"><label>Expiry</label><input placeholder="MM/YY"></div><div class="form-group"><label>CVC</label><input placeholder="123"></div></div></div></div>
+</div>
+<div class="order-summary">
+<div style="font-family:var(--font-heading);font-size:15px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px">Order Summary</div>
+<div id="checkoutItems"></div>
+<div class="summary-line"><span>Subtotal</span><span id="chkSubtotal">$0.00</span></div>
+<div class="summary-line"><span>Shipping</span><span>Free</span></div>
+<div class="summary-line"><span>Tax</span><span id="chkTax">$0.00</span></div>
+<div class="summary-line total"><span>Total</span><span id="chkTotal">$0.00</span></div>
+<button class="btn btn-primary btn-block" style="margin-top:22px" onclick="placeOrder()">Place Order</button>
+<div style="font-size:10px;color:var(--white-30);margin-top:12px;text-align:center;font-weight:500">&#128274; SSL Encrypted &bull; Your data is secure</div>
+</div>
+</div>
+</section>
+</div>
+
+<div class="page" id="page-success">
+<div class="success-page">
+<div class="success-icon">&#9989;</div>
+<h1 class="success-title">ORDER CONFIRMED!</h1>
+<div class="success-order">Order #MAX-<span id="orderNumber">00000</span></div>
+<p style="color:var(--white-60);margin-bottom:36px;font-size:16px">Thank you for your order. A confirmation email has been sent to your inbox.</p>
+<button class="btn btn-primary" onclick="navigate('home')">Continue Shopping</button>
+</div>
+</div>
+
+<div class="page" id="page-about">
+<div class="page-hero"><div class="section-label">Our Story</div><h1 class="hero-title" style="max-width:100%">BUILT TO <em>OUTLAST.</em></h1><p style="font-size:16px;color:var(--white-60);max-width:560px;margin:16px auto 0">MAXGRARPRO — A brand of Yiwu Liangcheng Trading Co., Ltd. Industrial-grade tool storage for professionals who demand equipment as tough as they are.</p></div>
+<div class="about-content">
+<h2>WHO WE ARE</h2><p>MAXGRARPRO is a brand of Yiwu Liangcheng Trading Co., Ltd., founded with a single mission: to deliver industrial-grade tool storage that professionals can trust — job after job, year after year. Every product is tested to withstand the harshest conditions, from scorching heat to freezing winters.</p><p>We don't build for showrooms. We build for real jobsites, real contractors, and real professionals.</p>
+<h2>OUR VALUES</h2>
+<div class="data-grid">
+<div class="data-card"><div class="data-num">&#128736;</div><div class="data-label">Industrial Grade</div><div class="data-desc">Tested to withstand extreme conditions</div></div>
+<div class="data-card"><div class="data-num">&#127758;</div><div class="data-label">Global Reach</div><div class="data-desc">Serving pros across 6 continents</div></div>
+<div class="data-card"><div class="data-num">&#128170;</div><div class="data-label">Built for Pros</div><div class="data-desc">Designed with input from electricians &amp; contractors</div></div>
+<div class="data-card"><div class="data-num">&#9851;</div><div class="data-label">Lifetime Warranty</div><div class="data-desc">Industry-leading guarantee</div></div>
+</div></div>
+<div class="dealer-cta"><div style="font-family:var(--font-heading);font-size:14px;font-weight:700;letter-spacing:4px;color:rgba(0,0,0,0.5);text-transform:uppercase;margin-bottom:16px">Partner With Us</div><h2>BECOME A DEALER.</h2><p>Exclusive pricing, dedicated support, and a brand professionals trust.</p><button class="btn btn-dark">Apply Now</button></div>
+</div>
+
+<!-- ==================================================================
+     PAGE: CONTACT
+     ================================================================== -->
+<div class="page" id="page-contact">
+<div class="page-hero"><div class="section-label">Get In Touch</div><h1 class="hero-title" style="max-width:100%">CONTACT <em>US.</em></h1><p style="font-size:16px;color:var(--white-60);max-width:500px;margin:16px auto 0">Product support, bulk pricing, or dealer inquiries — we're ready to help.</p></div>
+<section class="section">
+<div class="checkout-layout">
+<div class="checkout-form">
+<div class="form-section"><h3>Send a Message</h3>
+<div class="form-row"><div class="form-group"><label>First Name</label><input placeholder="Your name"></div><div class="form-group"><label>Last Name</label><input placeholder="Last name"></div></div>
+<div class="form-row full"><div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div></div>
+<div class="form-row full"><div class="form-group"><label>Subject</label><select><option>Product Inquiry</option><option>Order Support</option><option>B2B / Bulk Pricing</option><option>Dealer Application</option><option>Warranty Claim</option><option>Other</option></select></div></div>
+<div class="form-row full"><div class="form-group"><label>Message</label><textarea style="width:100%;background:var(--black);border:1px solid var(--white-10);padding:14px 16px;color:var(--white);font-family:var(--font-body);font-size:15px;outline:none;min-height:140px;resize:vertical;clip-path:var(--clip-sm)" placeholder="How can we help?"></textarea></div></div>
+<button class="btn btn-primary btn-block" onclick="showToast('Message sent! We\'ll reply within 24 hours.')">Send Message</button>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<div class="order-summary" style="position:static">
+<div style="font-family:var(--font-heading);font-size:15px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:20px">Contact Info</div>
+<div style="display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--white-05)"><div style="font-size:24px">&#128172;</div><div><div style="font-family:var(--font-heading);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase">WhatsApp</div><a href="https://wa.me/86187628128245" target="_blank" style="font-size:14px;color:var(--orange);font-weight:500">+1 (234) 567-890</a></div></div>
+<div style="display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--white-05)"><div style="font-size:24px">&#9993;</div><div><div style="font-family:var(--font-heading);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase">Email</div><a href="mailto:fenghao52066@gmail.com" style="font-size:14px;color:var(--orange);font-weight:500">fenghao52066@gmail.com</a></div></div>
+<div style="display:flex;align-items:center;gap:14px;padding:12px 0;border-bottom:1px solid var(--white-05)"><div style="font-size:24px">&#128222;</div><div><div style="font-family:var(--font-heading);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase">Phone</div><div style="font-size:14px;color:var(--white-60);font-weight:500">+1 (800) MAX-TOOL</div></div></div>
+<div style="display:flex;align-items:center;gap:14px;padding:12px 0"><div style="font-size:24px">&#128338;</div><div><div style="font-family:var(--font-heading);font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase">Hours</div><div style="font-size:14px;color:var(--white-60);font-weight:500">Mon–Fri 8AM–6PM EST</div></div></div>
+</div>
+<div class="order-summary" style="position:static">
+<div style="font-family:var(--font-heading);font-size:15px;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:16px">Quick Links</div>
+<a onclick="navigate('about')" style="display:block;padding:8px 0;color:var(--orange);font-size:14px;font-weight:500;cursor:pointer">About MAXGRARPRO →</a>
+<a onclick="navigate('shop')" style="display:block;padding:8px 0;color:var(--orange);font-size:14px;font-weight:500;cursor:pointer">Browse Products →</a>
+<a onclick="navigate('about')" style="display:block;padding:8px 0;color:var(--orange);font-size:14px;font-weight:500;cursor:pointer">Become a Dealer →</a>
+<a href="https://wa.me/86187628128245" target="_blank" style="display:block;padding:8px 0;color:var(--orange);font-size:14px;font-weight:500">WhatsApp Chat →</a>
+</div>
+</div>
+</div>
+</section>
+</div>
+
+<div class="page" id="page-imported">
+<div class="imported-hero"><div class="imported-badge">Global Selections</div><h1 class="hero-title" style="max-width:100%">IMPORTED <em>PRODUCTS.</em></h1><p style="font-size:16px;color:var(--white-60);max-width:500px;margin:16px auto 0">Curated third-party tools — selected for quality and value.</p></div>
+<section class="section">
+<div class="shop-layout">
+<div class="filter-sidebar">
+<div class="filter-group"><div class="filter-title">Category</div>
+<div class="filter-opt active" onclick="setImportFilter('all',this)">All Imported</div>
+<div class="filter-opt" onclick="setImportFilter('Power Tools',this)">Power Tools</div>
+<div class="filter-opt" onclick="setImportFilter('Hand Tools',this)">Hand Tools</div>
+<div class="filter-opt" onclick="setImportFilter('Garage Equipment',this)">Garage Equipment</div>
+<div class="filter-opt" onclick="setImportFilter('Safety Gear',this)">Safety Gear</div>
+<div class="filter-opt" onclick="setImportFilter('Workshop Supplies',this)">Workshop</div>
+</div></div>
+<div><div class="sort-row"><span class="result-count" id="importCount">8 products</span></div><div class="prod-grid" id="importGrid"></div></div></div>
+</section>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-grid">
+<div class="ft-links"><div class="ft-title">Shop</div>
+<a onclick="navigate('shop')">All Products</a><a onclick="navigate('shop');filterCategory('Modular Storage')">Systems</a><a onclick="navigate('shop');filterCategory('Tool Boxes')">Tool Boxes</a><a onclick="navigate('shop');filterCategory('Storage')">Storage</a><a onclick="navigate('shop');filterCategory('Accessories')">Accessories</a><a onclick="navigate('imported')">Imported</a></div>
+<div class="ft-links"><div class="ft-title">Support</div>
+<a onclick="navigate('about')">Contact</a><a onclick="navigate('about')">FAQs</a><a onclick="navigate('about')">Downloads</a><a onclick="navigate('about')">Warranty</a></div>
+<div class="ft-links"><div class="ft-title">Company</div>
+<a onclick="navigate('about')">About</a><a onclick="navigate('about')">Dealers</a><a onclick="navigate('about')">OEM / ODM</a></div>
+<div class="ft-links"><div class="ft-title">Connect</div>
+<a href="#">Instagram</a><a href="#">YouTube</a><a href="#">LinkedIn</a></div>
+</div>
+<div class="ft-bottom"><div class="ft-copy">&copy; 2026 MAXGRARPRO. Built for Professionals.</div></div>
+</footer>
+
+<!-- TIDIO -->
+<script src="//code.tidio.co/PLACEHOLDER.js" async onerror="this.remove()"></script>
+
+<script>
+// ===== DATA =====
+const products = [
+  {id:'fs-r300',series:'FLEXSTACK',name:'Rolling Tool Box',model:'FS-R300',price:299.99,origPrice:379.99,type:'Modular Storage',img:'🚛',rating:4.8,reviews:247,highlights:['Impact Resistant','Waterproof IP65','Stackable','Steel Reinforced','Heavy Duty Wheels','1,500 lbs'],sizes:['Medium','Large','XL'],colors:['Matte Black','Steel Gray','Safety Orange'],category:'FLEXSTACK',isNew:false,isBest:true},
+  {id:'fs-m200',series:'FLEXSTACK',name:'Mid Stacking Unit',model:'FS-M200',price:199.99,origPrice:249.99,type:'Modular Storage',img:'🔧',rating:4.7,reviews:189,highlights:['Stackable','Impact Resistant','IP65','Steel Latches'],sizes:['Standard'],colors:['Matte Black','Steel Gray'],category:'FLEXSTACK',isNew:false,isBest:true},
+  {id:'fs-t100',series:'FLEXSTACK',name:'Tool Organizer',model:'FS-T100',price:149.99,origPrice:179.99,type:'Modular Storage',img:'📦',rating:4.9,reviews:312,highlights:['Removable Trays','IP65','Stackable','Tool Dividers'],sizes:['Standard','Deep'],colors:['Matte Black','Steel Gray','Safety Orange'],category:'FLEXSTACK',isNew:true,isBest:true},
+  {id:'tt-500',series:'TITAN',name:'Steel Tool Chest',model:'TT-500',price:449.99,origPrice:549.99,type:'Tool Boxes',img:'🔒',rating:4.8,reviews:94,highlights:['16-Gauge Steel','1,500 lbs','Powder Coated','Locking System'],sizes:['40"','52"','72"'],colors:['Industrial Black','Steel Gray'],category:'TITAN',isNew:false,isBest:true},
+  {id:'tt-300',series:'TITAN',name:'Heavy-Duty Job Box',model:'TT-300',price:349.99,origPrice:399.99,type:'Tool Boxes',img:'🗄️',rating:4.6,reviews:78,highlights:['Steel Reinforced','Weatherproof','Heavy Load'],sizes:['Standard','Large'],colors:['Matte Black'],category:'TITAN',isNew:false,isBest:false},
+  {id:'ml-600',series:'MOBILOX',name:'Mobile Workstation',model:'ML-600',price:529.99,origPrice:629.99,type:'Storage',img:'🛒',rating:4.7,reviews:56,highlights:['All-Terrain Wheels','Work Surface','Power Ready'],sizes:['Standard','Pro'],colors:['Dark Graphite','Matte Black'],category:'MOBILOX',isNew:true,isBest:false},
+  {id:'iv-700',series:'IRONVAULT',name:'Industrial Cabinet',model:'IV-700',price:699.99,origPrice:799.99,type:'Storage',img:'🏗️',rating:4.9,reviews:42,highlights:['Heavy Gauge Steel','Lockable','Adjustable Shelves'],sizes:['36"','48"','60"'],colors:['Industrial Black','Steel Gray'],category:'IRONVAULT',isNew:false,isBest:false},
+  {id:'iv-400',series:'IRONVAULT',name:'Garage Cabinet',model:'IV-400',price:399.99,origPrice:449.99,type:'Storage',img:'🏠',rating:4.5,reviews:63,highlights:['Powder Coated','4 Shelves','Locking Doors'],sizes:['Standard','Wide'],colors:['Steel Gray','Matte Black'],category:'IRONVAULT',isNew:false,isBest:false},
+  {id:'pg-fi100',series:'PROGRID',name:'Foam Insert Kit',model:'PG-FI100',price:49.99,origPrice:59.99,type:'Accessories',img:'🔩',rating:4.6,reviews:67,highlights:['Customizable','High-Density','Pre-Cut Grid'],sizes:['Small','Medium','Large'],colors:['Black','Safety Orange'],category:'PROGRID',isNew:true,isBest:false},
+  {id:'pg-mk200',series:'PROGRID',name:'Mounting Rail System',model:'PG-MK200',price:79.99,origPrice:89.99,type:'Accessories',img:'📏',rating:4.4,reviews:41,highlights:['Universal Mount','Stainless Steel','Quick Release'],sizes:['24"','36"','48"'],colors:['Steel'],category:'PROGRID',isNew:false,isBest:false},
+  {id:'pg-wk01',series:'PROGRID',name:'Wheel Kit',model:'PG-WK01',price:39.99,origPrice:49.99,type:'Accessories',img:'⚙️',rating:4.3,reviews:53,highlights:['8" All-Terrain','Sealed Bearings'],sizes:['Standard'],colors:['Black'],category:'PROGRID',isNew:false,isBest:false},
+  {id:'fs-c50',series:'FLEXSTACK',name:'Side Crate',model:'FS-C50',price:79.99,origPrice:89.99,type:'Accessories',img:'📋',rating:4.5,reviews:88,highlights:['Clip-On','IP65','Tool Dividers'],sizes:['Standard'],colors:['Matte Black','Safety Orange'],category:'FLEXSTACK',isNew:true,isBest:false}
+];
+const importedProducts = [
+  {id:'imp-001',name:'Impact Driver Kit 20V',brand:'ProGrade',price:89.99,category:'Power Tools',img:'🔫',rating:4.5,reviews:128},
+  {id:'imp-002',name:'Drill Bit Set 48pc',brand:'SteelMax',price:34.99,category:'Hand Tools',img:'🪛',rating:4.7,reviews:215},
+  {id:'imp-003',name:'Work Gloves 6-Pack',brand:'GripForce',price:29.99,category:'Safety Gear',img:'🧤',rating:4.3,reviews:342},
+  {id:'imp-004',name:'LED Work Light 5000LM',brand:'BrightPro',price:59.99,category:'Garage Equipment',img:'💡',rating:4.6,reviews:89},
+  {id:'imp-005',name:'Torque Wrench 1/2"',brand:'TorqTech',price:129.99,category:'Hand Tools',img:'🔧',rating:4.8,reviews:176},
+  {id:'imp-006',name:'Parts Organizer 60-Drawer',brand:'SortMaster',price:79.99,category:'Workshop Supplies',img:'🗃️',rating:4.4,reviews:203},
+  {id:'imp-007',name:'Hard Hat w/ LED',brand:'SafeGuard',price:44.99,category:'Safety Gear',img:'⛑️',rating:4.5,reviews:156},
+  {id:'imp-008',name:'Angle Grinder 4.5"',brand:'PowerMax',price:69.99,category:'Power Tools',img:'⚡',rating:4.6,reviews:94}
+];
+
+// ===== STATE =====
+let cart=[],currentPage='home',currentPdpId='fs-r300',shopFilters={category:'all',type:'all',price:'all'},importFilter='all',pdpQty=1;
+
+// ===== NAVIGATION =====
+function navigate(page,productId){
+  currentPage=page;
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const t=document.getElementById('page-'+page);if(t)t.classList.add('active');
+  if(page==='shop')renderShop();
+  if(page==='product'){if(productId)currentPdpId=productId;renderPdp(currentPdpId);}
+  if(page==='cart')renderFullCart();
+  if(page==='checkout')renderCheckout();
+  if(page==='imported')renderImported();
+  window.scrollTo(0,0);
+  document.getElementById('mobileNav').classList.remove('open');
+}
+function filterCategory(cat){shopFilters.category=cat;shopFilters.type='all';navigate('shop');}
+
+// ===== CART =====
+function addToCart(productId,variant){
+  const p=products.find(x=>x.id===productId);if(!p)return;
+  const existing=cart.find(x=>x.id===productId&&x.variant===variant);
+  if(existing)existing.qty++;else cart.push({id:productId,name:p.name,series:p.series,price:p.price,img:p.img,variant:variant||p.sizes[0]+' / '+p.colors[0],qty:1});
+  updateCartUI();showToast('Added to Cart');
+}
+function addToCartFromPdp(){
+  const p=products.find(x=>x.id===currentPdpId);if(!p)return;
+  const size=document.querySelector('#varSize .var-opt.active')?.textContent||p.sizes[0];
+  const color=document.querySelector('#varColor .var-opt.active')?.textContent||p.colors[0];
+  const variant=size+' / '+color;
+  for(let i=0;i<pdpQty;i++){const e=cart.find(x=>x.id===currentPdpId&&x.variant===variant);if(e)e.qty++;else cart.push({id:currentPdpId,name:p.name,series:p.series,price:p.price,img:p.img,variant,qty:1});}
+  pdpQty=1;document.getElementById('pdpQty').value=1;updateCartUI();showToast('Added to Cart');
+}
+function removeFromCart(index){cart.splice(index,1);updateCartUI();renderFullCart();}
+function updateCartQty(index,delta){cart[index].qty+=delta;if(cart[index].qty<=0)cart.splice(index,1);updateCartUI();if(currentPage==='cart')renderFullCart();if(currentPage==='checkout')renderCheckout();}
+function updateCartUI(){
+  const c=cart.reduce((s,i)=>s+i.qty,0);document.getElementById('cartCount').textContent=c;document.getElementById('sbCartCount').textContent=c;
+  const t=cart.reduce((s,i)=>s+i.price*i.qty,0);document.getElementById('cartTotal').textContent='$'+t.toFixed(2);
+  renderCartSidebar();
+}
+function renderCartSidebar(){
+  const el=document.getElementById('cartItems');
+  if(cart.length===0){el.innerHTML='<div style="text-align:center;padding:60px 0;color:var(--white-30);font-weight:500">Your cart is empty</div>';return;}
+  el.innerHTML=cart.map((item,i)=>`<div class="cart-item"><div class="cart-thumb">${item.img}</div><div class="cart-info"><div class="cart-name">${item.name}</div><div class="cart-variant">${item.variant}</div><div class="cart-price">$${(item.price*item.qty).toFixed(2)}</div></div><div class="cart-qty"><button onclick="updateCartQty(${i},-1)">−</button><input value="${item.qty}" readonly><button onclick="updateCartQty(${i},1)">+</button></div><button class="cart-remove" onclick="removeFromCart(${i})">✕</button></div>`).join('');
+}
+function renderFullCart(){
+  const el=document.getElementById('fullCartItems'),emp=document.getElementById('cartEmptyState'),sum=document.getElementById('cartSummary');
+  if(cart.length===0){el.innerHTML='';emp.style.display='block';sum.style.display='none';}
+  else{emp.style.display='none';sum.style.display='block';el.innerHTML=cart.map((item,i)=>`<div class="cart-item"><div class="cart-thumb">${item.img}</div><div class="cart-info"><div class="cart-name">${item.series} — ${item.name}</div><div class="cart-variant">${item.variant}</div><div class="cart-price">$${(item.price*item.qty).toFixed(2)}</div></div><div class="cart-qty"><button onclick="updateCartQty(${i},-1)">−</button><input value="${item.qty}" readonly><button onclick="updateCartQty(${i},1)">+</button></div><button class="cart-remove" onclick="removeFromCart(${i})">✕</button></div>`).join('');document.getElementById('cartSummaryTotal').textContent='$'+cart.reduce((s,i)=>s+i.price*i.qty,0).toFixed(2);}
+}
+function toggleCart(){document.getElementById('cartSidebar').classList.toggle('open');document.getElementById('cartOverlay').classList.toggle('open');}
+function toggleMobileNav(){document.getElementById('mobileNav').classList.toggle('open');}
+
+// ===== SHOP =====
+function setFilter(type,value,el){shopFilters[type]=value;if(el){el.parentElement.querySelectorAll('.filter-opt').forEach(o=>o.classList.remove('active'));el.classList.add('active');}renderShop();}
+function sortProducts(v){renderShop();}
+function renderShop(){
+  let f=[...products];
+  if(shopFilters.category==='New')f=f.filter(p=>p.isNew);
+  else if(shopFilters.category==='Best Seller')f=f.filter(p=>p.isBest);
+  else if(shopFilters.category!=='all'){const c=shopFilters.category;f=f.filter(p=>p.category===c||p.type===c||p.series===c);}
+  if(shopFilters.type!=='all')f=f.filter(p=>p.type===shopFilters.type);
+  if(shopFilters.price==='under100')f=f.filter(p=>p.price<100);else if(shopFilters.price==='100-300')f=f.filter(p=>p.price>=100&&p.price<=300);else if(shopFilters.price==='over300')f=f.filter(p=>p.price>300);
+  const sv=document.querySelector('.sort-row select')?.value||'default';
+  if(sv==='price-asc')f.sort((a,b)=>a.price-b.price);else if(sv==='price-desc')f.sort((a,b)=>b.price-a.price);else if(sv==='name')f.sort((a,b)=>a.name.localeCompare(b.name));else if(sv==='rating')f.sort((a,b)=>b.rating-a.rating);
+  document.getElementById('resultCount').textContent=f.length+' products';
+  document.getElementById('shopGrid').innerHTML=f.map(p=>`<div class="prod-card" onclick="navigate('product','${p.id}')"><div class="prod-img">${p.img}${p.isNew?'<div class="prod-badge">NEW</div>':''}${p.isBest?'<div class="prod-badge best">BEST</div>':''}${p.origPrice>p.price?'<div class="prod-badge sale">SALE</div>':''}</div><div class="prod-body"><div class="prod-series">${p.series}</div><div class="prod-name">${p.name}</div><div class="prod-price">$${p.price.toFixed(2)}${p.origPrice>p.price?` <s>$${p.origPrice.toFixed(2)}</s>`:''}</div><div class="prod-rating">${'★'.repeat(Math.round(p.rating))} ${p.reviews}</div></div></div>`).join('');
+}
+
+// ===== PDP =====
+function renderPdp(id){
+  const p=products.find(x=>x.id===id);if(!p)return;
+  document.getElementById('pdpSeries').textContent=p.series+' Series';
+  document.getElementById('pdpTitle').textContent=p.name.toUpperCase();
+  document.getElementById('pdpModel').textContent=p.model;
+  document.getElementById('pdpRatingCount').textContent=p.rating+' — '+p.reviews+' Reviews';
+  document.getElementById('pdpPriceNow').textContent='$'+p.price.toFixed(2);
+  document.getElementById('pdpPriceOrig').textContent='$'+p.origPrice.toFixed(2);
+  document.getElementById('pdpSave').textContent='SAVE $'+(p.origPrice-p.price).toFixed(0);
+  document.getElementById('pdpMainImg').textContent=p.img;
+  document.getElementById('pdpHighlights').innerHTML=p.highlights.map(h=>`<div class="hl-item"><span class="hl-dot"></span>${h}</div>`).join('');
+  document.getElementById('pdpBreadcrumb').textContent=p.series+' Series';
+  document.getElementById('varSizeLabel').textContent=p.sizes[0];
+  document.getElementById('varSize').innerHTML=p.sizes.map((s,i)=>`<div class="var-opt${i===0?' active':''}" onclick="selectVar(this,'size')">${s}</div>`).join('');
+  document.getElementById('varColorLabel').textContent=p.colors[0];
+  document.getElementById('varColor').innerHTML=p.colors.map((c,i)=>`<div class="var-opt${i===0?' active':''}" onclick="selectVar(this,'color')">${c}</div>`).join('');
+  const compat=products.filter(x=>x.id!==id).slice(0,4);
+  document.getElementById('compatGrid').innerHTML=compat.map(cp=>`<div class="prod-card" onclick="navigate('product','${cp.id}')"><div class="prod-img">${cp.img}</div><div class="prod-body"><div class="prod-series">${cp.series}</div><div class="prod-name">${cp.name}</div><div class="prod-price">$${cp.price.toFixed(2)}</div><div class="prod-rating">${'★'.repeat(Math.round(cp.rating))} ${cp.reviews}</div></div></div>`).join('');
+}
+function selectVar(el,type){el.parentElement.querySelectorAll('.var-opt').forEach(o=>o.classList.remove('active'));el.classList.add('active');if(type==='size')document.getElementById('varSizeLabel').textContent=el.textContent;if(type==='color')document.getElementById('varColorLabel').textContent=el.textContent;}
+function changePdpThumb(el,icon){el.parentElement.querySelectorAll('.pdp-thumb').forEach(o=>o.classList.remove('active'));el.classList.add('active');document.getElementById('pdpMainImg').textContent=icon;}
+function changePdpQty(d){pdpQty=Math.max(1,pdpQty+d);document.getElementById('pdpQty').value=pdpQty;}
+
+// ===== CHECKOUT =====
+function renderCheckout(){
+  if(cart.length===0){navigate('cart');return;}
+  const sub=cart.reduce((s,i)=>s+i.price*i.qty,0),tax=sub*0.08;
+  document.getElementById('checkoutItems').innerHTML=cart.map(i=>`<div style="display:flex;justify-content:space-between;padding:6px 0;font-size:13px;color:var(--white-60);font-weight:500"><span>${i.name} x${i.qty}</span><span>$${(i.price*i.qty).toFixed(2)}</span></div>`).join('');
+  document.getElementById('chkSubtotal').textContent='$'+sub.toFixed(2);
+  document.getElementById('chkTax').textContent='$'+tax.toFixed(2);
+  document.getElementById('chkTotal').textContent='$'+(sub+tax).toFixed(2);
+}
+function placeOrder(){
+  // Basic validation
+  const inputs=document.querySelectorAll('#page-checkout input[type="text"], #page-checkout input[type="email"]');
+  let valid=true;
+  inputs.forEach(inp=>{if(!inp.value.trim()&&inp.placeholder){inp.style.borderColor='#E53935';valid=false;}else{inp.style.borderColor='';}});
+  if(!valid){showToast('Please fill all fields');return;}
+  cart=[];updateCartUI();document.getElementById('orderNumber').textContent=Math.floor(10000+Math.random()*90000);navigate('success');}
+
+function selectPayMethod(el){
+  el.parentElement.querySelectorAll('.pay-method').forEach(m=>m.classList.remove('active'));
+  el.classList.add('active');
+}
+
+// ===== IMPORTED =====
+function setImportFilter(cat,el){importFilter=cat;if(el){el.parentElement.querySelectorAll('.filter-opt').forEach(o=>o.classList.remove('active'));el.classList.add('active');}renderImported();}
+function renderImported(){
+  let f=importFilter==='all'?[...importedProducts]:importedProducts.filter(p=>p.category===importFilter);
+  document.getElementById('importCount').textContent=f.length+' products';
+  document.getElementById('importGrid').innerHTML=f.map(p=>`<div class="prod-card"><div class="prod-img">${p.img}<div class="prod-badge" style="background:#FFB800;color:var(--black)">IMPORTED</div></div><div class="prod-body"><div class="prod-series">${p.brand}</div><div class="prod-name">${p.name}</div><div class="prod-price">$${p.price.toFixed(2)}</div><div class="prod-rating">${'★'.repeat(Math.round(p.rating))} ${p.reviews}</div><div class="prod-actions"><button class="primary" onclick="event.stopPropagation();addImportedToCart('${p.id}')">Add to Cart</button><button onclick="event.stopPropagation()">Inquiry</button></div></div></div>`).join('');
+}
+function addImportedToCart(id){const p=importedProducts.find(x=>x.id===id);if(!p)return;const e=cart.find(x=>x.id===id);if(e)e.qty++;else cart.push({id,name:p.name,series:p.brand,price:p.price,img:p.img,variant:'Imported',qty:1});updateCartUI();showToast('Added');}
+function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),2000);}
+
+// ===== INIT =====
+updateCartUI();renderShop();renderPdp('fs-r300');renderImported();
+</script>
+</body>
+</html>
+                                                                     
